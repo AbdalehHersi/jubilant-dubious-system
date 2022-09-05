@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "inquirer": "^9.1.1",
+    "jest": "^29.0.2"
+  },
+  "name": "jubilant-dubious-system",
+  "description": "## Your Task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdalehHersi/jubilant-dubious-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdalehHersi/jubilant-dubious-system/issues"
+  },
+  "homepage": "https://github.com/AbdalehHersi/jubilant-dubious-system#readme"
+}
