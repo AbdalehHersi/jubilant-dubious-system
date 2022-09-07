@@ -77,11 +77,5 @@ const MainMenuQuestions = [
     },
 ]
 
-const questions = {
-    managerQuestions,
-    MainMenuQuestions,
-    internQuestions,
-    engineerQuestions
-};
 
-module.exports = (questions);
+module.exports = {managerQuestions, MainMenuQuestions, internQuestions, engineerQuestions};
