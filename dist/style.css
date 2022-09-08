@@ -1,0 +1,18 @@
+#navbar {
+    background: rgb(65, 7, 65)
+}
+
+#navbar-container {
+    display: flex;
+    justify-content: center;
+}
+
+#nav-text {
+    color: white;
+}
+
+#container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}

@@ -1,3 +1,3 @@
-const start = require("./src/displayQuestions");
+const displayQuestions = require("./src/displayQuestions");
 
-start.doMenuQuestions()
+displayQuestions.doMenuQuestions();
