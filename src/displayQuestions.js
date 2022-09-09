@@ -3,6 +3,7 @@ const { managerQuestions, MainMenuQuestions, engineerQuestions, internQuestions 
 const Intern = require("../lib/Intern");
 const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
+const fs = require("fs");
 const managerArr = [];
 const internArr = [];
 const engineerArr = [];
@@ -59,14 +60,78 @@ const engineer = () => {
 }
 
 const buildPage = () => {
-    buildIntern()
+    buildInternCard();
+    buildEngineerCard();
+    buildManagerCard();
 }
 
-const buildIntern = ()  => {
+const buildInternCard = () => {
     for (let i = 0; i < internArr.length; i++) {
         const intern = internArr[i];
-        return intern;
+        const internCard = 
+            `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${intern.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Studied at:</h6>
+              <p class="card-text">${intern.school}</p>
+              <p class="card-text">${intern.id}</p>
+              <a href="mailto: ${intern.email}" class="card-link">${intern.email}</a>
+            </div>
+          </div>`
+        writeInternCard(internCard);
+        }
+}
+
+const writeInternCard = (internCard) => {
+    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
+    templateHtml = templateHtml.replace("<!--Intern Placeholder-->", internCard);
+    fs.writeFileSync("./templateHtml/template.html",templateHtml, "utf-8");
+}
+
+const buildEngineerCard = () => {
+    for (let i = 0; i < engineerArr.length; i++) {
+        const engineer = engineerArr[i];
+        const engineerCard =
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${engineer.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Engineer id:</h6>
+              <p class="card-text">${engineer.id}</p>
+              <a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a>
+              <a href="mailto: ${engineer.email}" class="card-link">${engineer.email}</a>
+            </div>
+          </div>`
+          writeEngineerCard(engineerCard);
     }
+}
+
+const writeEngineerCard = (engineerCard) => {
+    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
+    templateHtml = templateHtml.replace("<!--Engineer Placeholder-->", engineerCard);
+    fs.writeFileSync("./templateHtml/template.html",templateHtml, "utf-8");
+}
+
+const buildManagerCard = () => {
+    for (let i = 0; i < managerArr.length; i++) {
+        const manager = managerArr[i];
+        const managerCard = 
+        `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${manager.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Manager id:</h6>
+              <p class="card-text">${manager.id}</p>
+              <p class="card-text">${manager.officeNumber}</p>
+              <a href="mailto: ${manager.email}" class="card-link">${manager.email}</a>
+            </div>
+          </div>`
+        writeManagerCard(managerCard);
+    }
+}
+
+const writeManagerCard = (managerCard) => {
+    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
+    templateHtml = templateHtml.replace("<!--Engineer Placeholder-->", managerCard);
+    fs.writeFileSync("./templateHtml/template.html",templateHtml, "utf-8");
 }
 
 module.exports = {engineerArr, managerArr, internArr, doMenuQuestions};
