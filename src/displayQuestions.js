@@ -81,13 +81,15 @@ const buildInternCard = () => {
     for (let i = 0; i < internArr.length; i++) {
         const intern = internArr[i];
         const internCard =
-            `<div class="card" style="width: 18rem;">
+            `
+            <div class="card" style="width: 18rem;">
+            <h1 class="card-header">Intern<h1/>
             <div class="card-body">
               <h5 class="card-title">${intern.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Studied at:</h6>
               <p class="card-text">${intern.school}</p>
               <p class="card-text">ID: ${intern.id}</p>
-              <a href="mailto: ${intern.email}" class="card-link">Email: ${intern.email}</a>
+              <p>Email: <a href="mailto: ${intern.email}" class="card-link">Email: ${intern.email}</a></p>
             </div>
           </div>`
         writeInternCard(internCard);
@@ -99,12 +101,14 @@ const buildEngineerCard = () => {
     for (let i = 0; i < engineerArr.length; i++) {
         const engineer = engineerArr[i];
         const engineerCard =
-            `<div class="card" style="width: 18rem;">
+            `
+            <div class="card" style="width: 18rem;">
+            <h1 class="card-header">Engineer<h1/>
         <div class="card-body">
         <h5 class="card-title">${engineer.name}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Engineer id:</h6>
         <p class="card-text">${engineer.id}</p>
-        <p>Github: </p><a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a>
+        <p>Github: <a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a></p>
         <a href="mailto: ${engineer.email}" class="card-link">${engineer.email}</a>
         </div>
         </div>`
@@ -116,13 +120,15 @@ const buildManagerCard = () => {
     for (let i = 0; i < managerArr.length; i++) {
         const manager = managerArr[i];
         const managerCard =
-            `<div class="card" style="width: 18rem;">
+            `
+            <div class="card" style="width: 18rem;">
+            <h1 class="card-header">Manager<h1/>
             <div class="card-body">
               <h5 class="card-title">${manager.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Manager id:</h6>
               <p class="card-text">${manager.id}</p>
               <p class="card-text">Office number: ${manager.officeNumber}</p>
-              <a href="mailto: ${manager.email}" class="card-link">${manager.email}</a>
+              <p>Email: <a href="mailto: ${manager.email}" class="card-link">${manager.email}</a></p>
             </div>
           </div>`
         writeManagerCard(managerCard);
