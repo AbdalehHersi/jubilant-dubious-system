@@ -74,7 +74,7 @@ const buildPage = () => {
     buildInternCard();
     buildEngineerCard();
     buildManagerCard();
-    setTimeout(() => page(), 1000);
+    setTimeout(() => page(), 0500);
 }
 
 const buildInternCard = () => {
@@ -86,41 +86,30 @@ const buildInternCard = () => {
               <h5 class="card-title">${intern.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Studied at:</h6>
               <p class="card-text">${intern.school}</p>
-              <p class="card-text">${intern.id}</p>
-              <a href="mailto: ${intern.email}" class="card-link">${intern.email}</a>
+              <p class="card-text">ID: ${intern.id}</p>
+              <a href="mailto: ${intern.email}" class="card-link">Email: ${intern.email}</a>
             </div>
           </div>`
         writeInternCard(internCard);
     }
 }
 
-const writeInternCard = (internCard) => {
-    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
-    templateHtml = templateHtml.replace("<!--Intern Placeholder-->", internCard);
-    fs.writeFileSync("./templateHtml/template.html", templateHtml, "utf-8");
-}
 
 const buildEngineerCard = () => {
     for (let i = 0; i < engineerArr.length; i++) {
         const engineer = engineerArr[i];
         const engineerCard =
             `<div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">${engineer.name}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Engineer id:</h6>
-              <p class="card-text">${engineer.id}</p>
-              <a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a>
-              <a href="mailto: ${engineer.email}" class="card-link">${engineer.email}</a>
-            </div>
-          </div>`
+        <div class="card-body">
+        <h5 class="card-title">${engineer.name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Engineer id:</h6>
+        <p class="card-text">${engineer.id}</p>
+        <p>Github: </p><a href="https://github.com/${engineer.github}" class="card-link">${engineer.github}</a>
+        <a href="mailto: ${engineer.email}" class="card-link">${engineer.email}</a>
+        </div>
+        </div>`
         writeEngineerCard(engineerCard);
     }
-}
-
-const writeEngineerCard = (engineerCard) => {
-    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
-    templateHtml = templateHtml.replace("<!--Engineer Placeholder-->", engineerCard);
-    fs.writeFileSync("./templateHtml/template.html", templateHtml, "utf-8");
 }
 
 const buildManagerCard = () => {
@@ -132,7 +121,7 @@ const buildManagerCard = () => {
               <h5 class="card-title">${manager.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Manager id:</h6>
               <p class="card-text">${manager.id}</p>
-              <p class="card-text">${manager.officeNumber}</p>
+              <p class="card-text">Office number: ${manager.officeNumber}</p>
               <a href="mailto: ${manager.email}" class="card-link">${manager.email}</a>
             </div>
           </div>`
@@ -140,10 +129,26 @@ const buildManagerCard = () => {
     }
 }
 
+const writeInternCard = (internCard) => {
+    fs.readFileSync("./templateHtml/template.html", "utf-8");
+    fs.appendFile("./templateHtml/template.html", internCard, (err) => {
+        err ? console.log(err) : console.log("Populating Intern Cards");
+    });
+}
+
+const writeEngineerCard = (engineerCard) => {
+    fs.readFileSync("./templateHtml/template.html", "utf-8");
+    fs.appendFile("./templateHtml/template.html", engineerCard, (err) => {
+        err ? console.log(err) : console.log("Populating Engineer Cards");
+    });
+}
+
+
 const writeManagerCard = (managerCard) => {
-    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
-    templateHtml = templateHtml.replace("<!--Manager Placeholder-->", managerCard);
-    fs.writeFileSync("./templateHtml/template.html", templateHtml, "utf-8");
+    fs.readFileSync("./templateHtml/template.html", "utf-8");
+    fs.appendFile("./templateHtml/template.html", managerCard, (err) => {
+        err ? console.log(err) : console.log("Populating Manager Cards");
+    });
 }
 
 

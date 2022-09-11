@@ -78,4 +78,4 @@ const MainMenuQuestions = [
 ]
 
 
-module.exports = {managerQuestions, MainMenuQuestions, internQuestions, engineerQuestions};
+module.exports = { managerQuestions, MainMenuQuestions, internQuestions, engineerQuestions };

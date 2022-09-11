@@ -1,15 +1,19 @@
 const fs = require("fs");
 
-const page = () => {
-    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
-    fs.writeFileSync("./dist/teampage.html", templateHtml, "utf-8");
-}
-
 const saveTemplate = () => {
     let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
     setTimeout(() => {
         fs.writeFileSync("./templateHtml/template.html", templateHtml, "utf-8");
-    }, 2000)
+    }, 1000)
 }
+
+const page = () => {
+    console.log("Building Page");
+    let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
+    fs.writeFileSync("./dist/teampage.html", templateHtml + `</body>
+    </html>`, "utf-8");
+    console.log("Page built. Success")
+}
+
 
 module.exports = { page, saveTemplate }
