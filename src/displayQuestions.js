@@ -83,7 +83,7 @@ const buildInternCard = () => {
         const internCard =
             `
             <div class="card" style="width: 18rem;">
-            <h1 class="card-header">Intern<h1/>
+            <h4 class="card-header">Intern</h4>
             <div class="card-body">
               <h5 class="card-title">${intern.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Studied at:</h6>
@@ -103,7 +103,7 @@ const buildEngineerCard = () => {
         const engineerCard =
             `
             <div class="card" style="width: 18rem;">
-            <h1 class="card-header">Engineer<h1/>
+            <h4 class="card-header">Engineer</h4>
         <div class="card-body">
         <h5 class="card-title">${engineer.name}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Engineer id:</h6>
@@ -122,7 +122,7 @@ const buildManagerCard = () => {
         const managerCard =
             `
             <div class="card" style="width: 18rem;">
-            <h1 class="card-header">Manager<h1/>
+            <h4 class="card-header">Manager</h4>
             <div class="card-body">
               <h5 class="card-title">${manager.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Manager id:</h6>
