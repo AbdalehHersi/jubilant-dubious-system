@@ -11,8 +11,8 @@ const page = () => {
     console.log("Building Page");
     let templateHtml = fs.readFileSync("./templateHtml/template.html", "utf-8");
     fs.writeFileSync("./dist/teampage.html", templateHtml + `</section> </body>
-    </html>`, "utf-8");
-    console.log("Page built. Success")
+    </html>`, "utf-8"); // add ending tags
+    console.log("Page built. Success");
 }
 
 

@@ -8,14 +8,14 @@ const { page, saveTemplate } = require("./buildPage");
 const managerArr = [];
 const internArr = [];
 const engineerArr = [];
-
+// imports and global variables
 
 const doMenuQuestions = () => {
     inquire.prompt(managerQuestions)
         .then((response) => {
             let managerInput = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOffice);
             managerArr.push(managerInput);
-            doMainMenuQuestions();
+            doMainMenuQuestions();  // ask manager questions first
         })
 }
 
@@ -74,7 +74,7 @@ const buildPage = () => {
     buildInternCard();
     buildEngineerCard();
     buildManagerCard();
-    setTimeout(() => page(), 0500);
+    setTimeout(() => page(), 0500); // run after 0.5 secs
 }
 
 const buildInternCard = () => {
@@ -139,7 +139,7 @@ const writeInternCard = (internCard) => {
     fs.readFileSync("./templateHtml/template.html", "utf-8");
     fs.appendFile("./templateHtml/template.html", internCard, (err) => {
         err ? console.log(err) : console.log("Populating Intern Cards");
-    });
+    }); // append to the end of the template file
 }
 
 const writeEngineerCard = (engineerCard) => {
